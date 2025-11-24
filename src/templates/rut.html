@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Validar RUT</title>
+</head>
+<body>
+  <h1>Validar RUT chileno</h1>
+  <form action="/rut" method="post">
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" name="rut" value="{{ rut|e }}">
+    <button type="submit">Validar</button>
+  </form>
+
+  {% if resultado is not none %}
+    {% if resultado %}
+      <p style="color:green">El RUT {{ rut }} es válido.</p>
+    {% else %}
+      <p style="color:red">El RUT {{ rut }} no es válido.</p>
+    {% endif %}
+  {% endif %}
+</body>
+</html>
